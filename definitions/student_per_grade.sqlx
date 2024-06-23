@@ -1,0 +1,11 @@
+config {
+    type: "table"
+}
+
+SELECT
+  Grade,
+  COUNT(*) AS Count_of_Stduents
+FROM
+  ${ref("student_information")}
+GROUP BY
+  Grade

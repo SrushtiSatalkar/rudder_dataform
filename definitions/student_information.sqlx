@@ -1,0 +1,37 @@
+
+config {
+  type: "table",
+  description: "Student information with id, first_name, last_name, mark, and Grade columns.",
+  assertions: {
+    uniqueKey: ["id"],
+    rowConditions: [
+      'id > 0'
+    ]
+  },
+  columns: {
+    id: "Unique id",
+    first_name: "First name",
+    last_name: "Last name",
+    mark: "Mark",
+    Grade: "Grade"
+  }
+}
+
+SELECT
+  id,
+  first_name,
+  last_name,
+  mark,
+  Grade
+FROM UNNEST([
+  STRUCT(1 AS id, 'Srushti' AS first_name, 'Satalkar' AS last_name, 85 AS mark, 'A' AS Grade),
+  (2, 'Atharva', 'Patil', 92, 'A'),
+  (3, 'Anchit', 'Handa', 78, 'B'),
+  (4, 'Sharwari', 'Gode', 88, 'A'),
+  (5, 'Purva', 'Pote', 65, 'C'),
+  (6, 'Vibha', 'Rao', 73, 'B'),
+  (7, 'Jeevika', 'Sirwani', 90, 'A'),
+  (8, 'Sumit', 'Shinde', 79, 'B'),
+  (9, 'Anuj', 'Gupta', 82, 'B'),
+  (10, 'Sanskruti', 'Zende', 70, 'C')
+])

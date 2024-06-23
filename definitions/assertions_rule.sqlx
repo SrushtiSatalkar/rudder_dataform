@@ -1,0 +1,8 @@
+config {
+    type: "table",
+}
+
+SELECT *
+FROM ${ref("student_information")}
+ORDER BY id
+LIMIT 5
